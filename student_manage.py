@@ -3,10 +3,14 @@ class Exam():
 	def __init__(self,dogru_sayisi, yanlis_sayisi):
 		self.dogru_sayisi = dogru_sayisi
 		self.yanlis_sayisi = yanlis_sayisi
-		self.score = self.dogru_sayisi * 4 #Her soru 4 puan
+		
+		toplam = self.dogru_sayisi + self.yanlis_sayisi
+		puan = 100 / toplam
+
+		self.score = self.dogru_sayisi * puan
 
 
-	def __int__(self):
+	def __float__(self):
 		return self.score
 
 
@@ -18,7 +22,7 @@ class Student():
 		self.ogrenci_adi = ogrenci_adi
 
 	def add_exam(self,sinav_notu):
-		self.sinav_notu = int(sinav_notu)
+		self.sinav_notu = int(float(sinav_notu))
 		self.not_listesi.append(self.sinav_notu)
 		
 		self.avg_score += self.sinav_notu
@@ -39,4 +43,6 @@ class Class():
 		self.class_avg += self.ogr_not
 		adet = len(self.not_listesi)
 		self.class_avg = self.class_avg / adet
+
+
 
